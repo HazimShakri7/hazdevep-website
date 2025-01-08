@@ -1,6 +1,6 @@
-import Budget from "../ui/budget";
-import Personal from "../ui/personal";
-import Types from "../ui/types";
+import Budget from "../components/budget";
+import Personal from "../components/personal";
+import Types from "../components/types";
 
 export default function Contact() {
 
@@ -15,7 +15,7 @@ export default function Contact() {
           Want a Website?
         </h2>
 
-        {/*Components ui*/}
+        {/*Components*/}
         <div className="space-y-8">
         <Types />
         <Budget />

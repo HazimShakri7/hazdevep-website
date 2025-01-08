@@ -1,7 +1,7 @@
 import '@fortawesome/fontawesome-free/css/all.css';
-import Socmed from '../shared/Socmed';
-import Header from '../shared/Header';
-import Engage from '../shared/Engage';
+import Socmed from '../ui/Socmed';
+import Header from '../ui/Header';
+import Engage from '../ui/Engage';
 
 export default function Hero() {
   return (

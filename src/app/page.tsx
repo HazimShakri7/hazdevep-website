@@ -1,12 +1,12 @@
 import Image from "next/image";
-import Header from "./shared/Header";
-import Hero from "./components/Hero";
-import Skills from "./components/Skills";
-import Project from "./components/Project";
-import Testimonial from "./components/Testimonial";
-import Function from "./components/Function";
-import Contact from "./components/Contact";
-import Footer from "./shared/Footer";
+import Header from "./ui/Header";
+import Hero from "./shared/Hero";
+import Skills from "./shared/Skills";
+import Project from "./shared/Project";
+import Testimonial from "./shared/Testimonial";
+import Function from "./shared/Function";
+import Contact from "./shared/Contact";
+import Footer from "./ui/Footer";
 
 export default function Home() {
   return (
