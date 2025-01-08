@@ -1,4 +1,16 @@
 export default function Skills() {
+
+  const skills = [
+    { name: "Next.js", image: "/skills/Nextjs.png", description: "A tool to build websites with React." },
+    { name: "React", image: "/skills/React.png", description: "A JavaScript library to build websites and apps." },
+    { name: "TypeScript", image: "/skills/TypeScript.png", description: "A language that helps write safer and clearer code." },
+    { name: "Tailwind CSS", image: "/skills/TailwindCSS.png", description: "A language to quickly style websites using simple code." },
+    { name: "Payload", image: "/skills/Payload.png", description: "A software to manage your website's content." },
+    { name: "MongoDB", image: "/skills/MongoDB.png", description: "A database that stores data in easy-to-use format." },
+    { name: "GitHub", image: "/skills/GitHub.png", description: "A platform to share and work on code." },
+    { name: "Vercel", image: "/skills/Vercel.png", description: "A platform to deploy and host websites and apps." },
+  ];
+
   return (
     <section
       id="skills"
@@ -9,7 +21,7 @@ export default function Skills() {
           My Skills
         </h1>
 
-        <div className="grid grid-cols-4 gap-8 max-w-5xl mx-auto">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8 max-w-5xl mx-auto">
           {/* Skill Cards */}
           {skills.map((skill, index) => (
             <div
@@ -19,7 +31,7 @@ export default function Skills() {
               <div className="relative w-full h-full [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] transition-transform duration-700">
                 {/* Front Side */}
                 <div className="absolute w-full h-full bg-white border-4 border-yellow-500 p-6 rounded-lg shadow-md [backface-visibility:hidden]">
-                  <h2 className="text-xl font-semibold text-black mb-4">{skill.name}</h2>
+                  <h2 className="text-xl sm:text-2xl font-semibold text-black mb-4">{skill.name}</h2>
                   <img
                     src={skill.image}
                     alt={skill.name}
@@ -29,7 +41,7 @@ export default function Skills() {
 
                 {/* Back Side */}
                 <div className="absolute w-full h-full bg-yellow-500 border-4 border-white p-6 rounded-lg shadow-md flex flex-col justify-center [transform:rotateY(180deg)] [backface-visibility:hidden]">
-                  <h3 className="text-black font-bold text-center">{skill.description}</h3>
+                  <h3 className="text-black font-bold text-center txt-lg sm:text-xl">{skill.description}</h3>
                 </div>
               </div>
             </div>
@@ -39,14 +51,3 @@ export default function Skills() {
     </section>
   );
 }
-
-const skills = [
-  { name: "Next.js", image: "/skills/Nextjs.png", description: "A tool to build websites with React." },
-  { name: "React", image: "/skills/React.png", description: "A JavaScript library to build websites and apps." },
-  { name: "TypeScript", image: "/skills/TypeScript.png", description: "A language that helps write safer and clearer code." },
-  { name: "Tailwind CSS", image: "/skills/TailwindCSS.png", description: "A language to quickly style websites using simple code." },
-  { name: "Payload", image: "/skills/Payload.png", description: "A software to manage your website's content." },
-  { name: "MongoDB", image: "/skills/MongoDB.png", description: "A database that stores data in easy-to-use format." },
-  { name: "GitHub", image: "/skills/GitHub.png", description: "A platform to share and work on code." },
-  { name: "Vercel", image: "/skills/Vercel.png", description: "A platform to deploy and host websites and apps." },
-];

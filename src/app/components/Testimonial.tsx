@@ -42,7 +42,7 @@ export default function Testimonial() {
       image: "/customer/Haz.jpg",
       feedback: "Saya suka dengan website yang hazim buat. Sangat colourful dan menarik. Sangat recommended untuk personal branding atau portfolio.",
       rating: 5,
-    }
+    },
   ];
 
   const totalSlides = Math.ceil(testimonials.length / 3);
@@ -55,33 +55,34 @@ export default function Testimonial() {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % totalSlides);
   };
 
-  const currentTestimonials = testimonials.slice(currentIndex * 3, (currentIndex + 1) * 3);
-
   return (
     <section
       id="testimonial"
-      className="relative bg-gradient-to-r from-black to-green-900 text-white h-screen flex items-center justify-center"
+      className="relative bg-gradient-to-r from-black to-green-900 text-white py-20 flex items-center justify-center"
     >
       <div className="container mx-auto text-center px-4">
-        <h2 className="text-4xl sm:text-5xl font-bold text-white mb-8">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-8">
           Customer Feedback
         </h2>
 
-        {/* Testimonials Container with sliding effect */}
+        {/* Testimonials Container */}
         <div className="overflow-hidden">
           <div
             className="flex transition-transform duration-700 ease-in-out"
             style={{ transform: `translateX(-${currentIndex * 100}%)` }}
           >
             {testimonials.map((testimonial, index) => (
-              <div key={index} className="flex-shrink-0 w-full sm:w-1/2 lg:w-1/3 px-4">
+              <div
+                key={index}
+                className="flex-shrink-0 w-full sm:w-1/2 lg:w-1/3 px-4"
+              >
                 <div className="bg-transparent border-2 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
                   <img
                     src={testimonial.image}
                     alt="Customer"
-                    className="w-14 h-14 object-cover rounded-full border-2 shadow-lg"
+                    className="w-14 h-14 object-cover rounded-full border-2 shadow-lg mx-auto"
                   />
-                  <h3 className="flex text-xl font-semibold text-yellow-400 mb-4 mt-2">
+                  <h3 className="text-xl font-semibold text-yellow-400 mb-4 mt-2">
                     {testimonial.name}
                   </h3>
                   <p className="text-start text-white-600">{testimonial.feedback}</p>
@@ -89,7 +90,9 @@ export default function Testimonial() {
                     {Array.from({ length: 5 }, (_, index) => (
                       <i
                         key={index}
-                        className={`items-center fa-solid fa-star ${index < testimonial.rating ? "text-yellow-400" : ""}`}
+                        className={`fa-solid fa-star ${
+                          index < testimonial.rating ? "text-yellow-400" : ""
+                        }`}
                       />
                     ))}
                   </div>
@@ -101,7 +104,7 @@ export default function Testimonial() {
         </div>
 
         {/* Arrow Navigation */}
-        <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 flex justify-between w-full max-w-xs">
+        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex justify-between w-full max-w-xs">
           <button
             onClick={goToPrev}
             className="text-3xl text-white bg-transparent hover:bg-yellow-500 p-2 rounded-full"
@@ -110,7 +113,7 @@ export default function Testimonial() {
           </button>
           <button
             onClick={goToNext}
-            className="text-3xl text-white bg-transparent  p-2 rounded-full"
+            className="text-3xl text-white bg-transparent hover:bg-yellow-500 p-2 rounded-full"
           >
             <FaChevronRight />
           </button>
