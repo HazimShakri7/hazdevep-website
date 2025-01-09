@@ -26,12 +26,12 @@ export default function Hero() {
 
           {/* Right Side: Name, Bio, and Button */}
           <div className="w-full sm:w-2/3 pl-0 sm:pl-8 mt-6 sm:mt-0">
-            <p className="text-lg sm:text-3xl ml-1">Hi, I'm</p>
+            <p className="text-lg sm:text-3xl ml-1">Hi, I&apos;m</p>
             <h1 className="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight mb-4">
               Hazim Shakri
             </h1>
             <p className="text-lg sm:text-xl mb-6">
-              I'm a passionate developer focused on creating user-friendly and
+              I&apos;m a passionate developer focused on creating user-friendly and
               functional websites. Let me create your own personal website
               for portfolio, marketing, promotion and more. Just the way you like.
             </p>
