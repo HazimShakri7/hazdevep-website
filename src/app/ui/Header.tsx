@@ -12,7 +12,6 @@ export default function Header() {
     }
   };
 
-  // Navigation links
   const navItems = [
     { label: "Home", id: "home" },
     { label: "Skills", id: "skills" },
@@ -23,48 +22,44 @@ export default function Header() {
   ];
 
   return (
-    <header className="bg-white text-green-800 p-4 fixed top-3 left-1/2 transform -translate-x-1/2 w-11/12 shadow-lg z-50 rounded-full">
-      <div className="container flex flex-wrap justify-between items-center px-6">
+    <header className="bg-transparent text-white p-4 fixed top-3 left-1/2 transform -translate-x-1/2 w-11/12 shadow-md z-50 rounded-full">
+      <div className="container flex justify-between items-center px-6">
         {/* Logo */}
         <div className="text-2xl sm:text-3xl font-bold flex-shrink-0">
-          <a href="/" className="hover:text-yellow-500">
-            Haz Devep
-          </a>
         </div>
 
-        {/* Hamburger Icon for Mobile */}
-        <div className="sm:hidden flex items-center">
-          <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="text-3xl text-green-800 hover:text-yellow-500 focus:outline-none"
-          >
-            <i className={`fa ${isMenuOpen ? "fa-times" : "fa-bars"}`}></i>
-          </button>
-        </div>
-
-        {/* Navigation */}
-        <nav className={`w-full sm:w-auto mt-4 sm:mt-0 ${isMenuOpen ? "block" : "hidden"} sm:block`}>
-          <ul className="flex flex-wrap justify-center sm:justify-end space-x-3 sm:space-x-6">
-            {navItems.map((item) => (
-              <li
-                key={item.id}
-                className="transform transition-transform duration-300 hover:scale-105 hover:translateX-2"
-              >
-                <a
-                  href={`#${item.id}`}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    scrollToSection(item.id);
-                  }}
-                  className="hover:text-yellow-500 font-bold transition-colors duration-300 text-sm sm:text-base"
-                >
-                  {item.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
+        {/* Hamburger Icon */}
+        <button
+          className="flex items-center justify-center w-8 h-8 rounded-full bg-white text-green-900 focus:outline-none"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
+          <i className={`fa ${isMenuOpen ? "fa-times" : "fa-bars"}`}></i>
+        </button>
       </div>
+
+      {/* Navigation as Drawer */}
+      <nav className={`fixed top-5 transform w-full sm:w-11/12 bg-transparent z-40 rounded-full transition-transform duration-300 overflow-hidden ${isMenuOpen ? "max-h-screen" : "max-h-0"}`}>
+        <ul className="flex flex-wrap justify-end sm:justify-end space-x-3 sm:space-x-6 mr-4">
+        <p className="text-white text-3xl font-bold absolute left-0 top-1/2 transform -translate-y-1/2 ml-12">Hazim Shakri</p>
+          {navItems.map((item) => (
+            <li
+              key={item.id} 
+              className="transform transition-transform duration-300 hover:scale-110"
+            >
+              <a
+                href={`#${item.id}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection(item.id);
+                }}
+                className="hover:text-yellow-500 font-bold transition-colors duration-300 text-normal"
+              >
+                {item.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
     </header>
   );
 }
