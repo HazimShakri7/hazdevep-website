@@ -40,13 +40,13 @@ export default function Header() {
       {/* Navigation as Drawer */}
       <nav className={`fixed top-5 transform w-full sm:w-11/12 bg-transparent z-40 rounded-full transition-transform duration-300 overflow-hidden ${isMenuOpen ? "max-h-screen" : "max-h-0"}`}>
         <ul className="flex flex-wrap justify-center sm:justify-end space-x-3 sm:space-x-6 mr-4">
-        <p className="text-white text-xl sm:text-2xl md:text-3xl lg:text-3xl font-bold absolute left-0 top-1/2 transform -translate-y-1/2 ml-12">
-        Hazim Shakri
-        </p>
+          <p className="text-white text-xl sm:text-2xl md:text-3xl lg:text-3xl font-bold absolute left-0 top-1/2 transform -translate-y-1/2 ml-12 sm:block hidden">
+            Hazim Shakri
+          </p>
           {navItems.map((item) => (
             <li
-              key={item.id} 
-              className="transform transition-transform duration-300 hover:scale-110"
+              key={item.id}
+              className="transform transition-transform duration-300 hover:scale-110 mb-2 sm:mb-0"
             >
               <a
                 href={`#${item.id}`}
