@@ -38,7 +38,7 @@ export default function Hero() {
             <a
               className="bg-yellow-500 text-gray-800 py-2 px-6 rounded-full text-lg font-semibold"
             >
-              Find Me On&apos;{' '}
+              Find Me On&apos;
               <i className="fa-solid fa-hand-point-down text-xl text-black ml-2"></i>
             </a>
             <Socmed />

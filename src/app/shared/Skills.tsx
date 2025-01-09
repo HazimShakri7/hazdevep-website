@@ -1,3 +1,4 @@
+import Image from "next/image";
 export default function Skills() {
 
   const skills = [
@@ -32,10 +33,12 @@ export default function Skills() {
                 {/* Front Side */}
                 <div className="absolute w-full h-full bg-white border-4 border-yellow-500 p-6 rounded-lg shadow-md [backface-visibility:hidden]">
                   <h2 className="text-xl sm:text-2xl font-semibold text-black mb-4">{skill.name}</h2>
-                  <img
+                  <Image
                     src={skill.image}
                     alt={skill.name}
-                    className="w-20 h-20 mx-auto"
+                    width={20}
+                    height={20}
+                    className="mx-auto"
                   />
                 </div>
 
