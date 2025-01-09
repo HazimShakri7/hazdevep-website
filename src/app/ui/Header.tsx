@@ -39,8 +39,10 @@ export default function Header() {
 
       {/* Navigation as Drawer */}
       <nav className={`fixed top-5 transform w-full sm:w-11/12 bg-transparent z-40 rounded-full transition-transform duration-300 overflow-hidden ${isMenuOpen ? "max-h-screen" : "max-h-0"}`}>
-        <ul className="flex flex-wrap justify-end sm:justify-end space-x-3 sm:space-x-6 mr-4">
-        <p className="text-white text-3xl font-bold absolute left-0 top-1/2 transform -translate-y-1/2 ml-12">Hazim Shakri</p>
+        <ul className="flex flex-wrap justify-center sm:justify-end space-x-3 sm:space-x-6 mr-4">
+        <p className="text-white text-xl sm:text-2xl md:text-3xl lg:text-3xl font-bold absolute left-0 top-1/2 transform -translate-y-1/2 ml-12">
+        Hazim Shakri
+        </p>
           {navItems.map((item) => (
             <li
               key={item.id} 
