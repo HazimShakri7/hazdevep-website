@@ -26,7 +26,7 @@ export default function Home() {
     {/*What can you do with Website?*/}
     <Function />
 
-    {/*Want a Website?*/}
+    {/*Want to own a Website?*/}
     <Contact />
 
     {/* <Footer /> */}
