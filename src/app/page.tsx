@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Header from "./ui/Header";
 import Hero from "./shared/Hero";
 import Skills from "./shared/Skills";
