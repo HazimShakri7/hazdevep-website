@@ -16,7 +16,9 @@ export default function Hero() {
           {/* Left Side: Profile Image */}
           <div className="w-full sm:w-2/3 mt-[-150px] sm:mt-[-250px]">
             <Image
-              src="/hero/HazHen.png" 
+              src="/hero/HazHen.png"
+              width={500}
+              height={500} 
               alt="Hazim Shakri"
               className="w-full h-full object-cover rounded-full shadow-lg"
             />

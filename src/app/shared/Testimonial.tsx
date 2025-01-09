@@ -81,6 +81,8 @@ export default function Testimonial() {
                   <Image
                     src={testimonial.image}
                     alt="Customer"
+                    width={10}
+                    height={10}
                     className="w-14 h-14 object-cover rounded-full border-2 shadow-lg mx-auto"
                   />
                   <h3 className="text-xl font-semibold text-yellow-400 mb-4 mt-2">
