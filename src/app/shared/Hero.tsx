@@ -1,4 +1,5 @@
 import '@fortawesome/fontawesome-free/css/all.css';
+import Image from 'next/image';
 import Socmed from '../ui/Socmed';
 import Header from '../ui/Header';
 import Engage from '../ui/Engage';
@@ -14,7 +15,7 @@ export default function Hero() {
         <div className="relative z-10 container mx-auto px-4 flex flex-col sm:flex-row items-center justify-between">
           {/* Left Side: Profile Image */}
           <div className="w-full sm:w-2/3 mt-[-150px] sm:mt-[-250px]">
-            <img
+            <Image
               src="/hero/HazHen.png" 
               alt="Hazim Shakri"
               className="w-full h-full object-cover rounded-full shadow-lg"
@@ -35,7 +36,7 @@ export default function Hero() {
             <a
               className="bg-yellow-500 text-gray-800 py-2 px-6 rounded-full text-lg font-semibold"
             >
-              Find Me On{' '}
+              Find Me On&apos;{' '}
               <i className="fa-solid fa-hand-point-down text-xl text-black ml-2"></i>
             </a>
             <Socmed />

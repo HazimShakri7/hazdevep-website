@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
@@ -77,7 +78,7 @@ export default function Testimonial() {
                 className="flex-shrink-0 w-full sm:w-1/2 lg:w-1/3 px-4"
               >
                 <div className="bg-transparent border-2 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
-                  <img
+                  <Image
                     src={testimonial.image}
                     alt="Customer"
                     className="w-14 h-14 object-cover rounded-full border-2 shadow-lg mx-auto"
