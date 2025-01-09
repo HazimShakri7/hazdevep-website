@@ -36,8 +36,8 @@ export default function Skills() {
                   <Image
                     src={skill.image}
                     alt={skill.name}
-                    width={20}
-                    height={20}
+                    width={100}
+                    height={100}
                     className="mx-auto"
                   />
                 </div>
