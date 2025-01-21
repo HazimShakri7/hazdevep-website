@@ -1,9 +1,16 @@
-export default function PrivacyPolicyLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
-    <div>
-      <header>Privacy Policy Header</header>
-      <main>{children}</main>
-      <footer>Privacy Policy Footer</footer>
-    </div>
+    <html lang="en">
+      <body
+        className={`antialiased`}
+      >
+        {children}
+      </body>
+    </html>
   );
 }
+    
