@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import { Button } from "@nextui-org/react";
+
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -29,12 +31,13 @@ export default function Header() {
         </div>
 
         {/* Hamburger Icon */}
-        <button
+        <Button
           className="flex items-center justify-center w-8 h-8 rounded-full bg-white text-green-900 focus:outline-none"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          onPress={() => setIsMenuOpen(!isMenuOpen)}
+          title={isMenuOpen ? "Close" : "Menu"}
         >
           <i className={`fa ${isMenuOpen ? "fa-times" : "fa-bars"}`}></i>
-        </button>
+        </Button>
       </div>
 
       {/* Navigation as Drawer */}

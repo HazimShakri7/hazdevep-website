@@ -1,5 +1,5 @@
 export default function Project() {
-  const functionList = [
+  const projectList = [
     { title: "Mentor-tee System" }, { title: "I-Attendancy App" }, { title: "Tourist Helper App" }, { title: "GOSG 2.0 Portal" },
   ];
 
@@ -15,7 +15,7 @@ export default function Project() {
 
         {/* Mapping Method to Avoid Duplication Code for Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-8 max-w-7xl mx-auto">
-          {functionList.map((box, index) => (
+          {projectList.map((box, index) => (
             <div
               key={index}
               className="bg-transparent border-2 p-6 sm:p-8 lg:p-12 xl:p-16 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300"

@@ -18,9 +18,10 @@ export default function Hero() {
             <Image
               src="/hero/HazHen.png"
               width={500}
-              height={500} 
+              height={500}
               alt="Hazim Shakri"
               className="w-full h-full object-cover rounded-full shadow-lg"
+              priority
             />
           </div>
 
@@ -31,13 +32,12 @@ export default function Hero() {
               Hazim Shakri
             </h1>
             <p className="text-lg sm:text-xl mb-6">
-              I&apos;m a passionate developer focused on creating user-friendly and
-              functional websites. Let me create your own personal website
-              for portfolio, marketing, promotion and more. Just the way you like.
+              I&apos;m a passionate developer focused on creating user-friendly
+              and functional websites. Let me create your own personal website
+              for portfolio, marketing, promotion and more. Just the way you
+              like.
             </p>
-            <a
-              className="bg-yellow-500 text-gray-800 py-2 px-6 rounded-full text-lg font-semibold"
-            >
+            <a className="bg-yellow-500 text-gray-800 py-2 px-6 rounded-full text-lg font-semibold">
               Find Me On&apos;
               <i className="fa-solid fa-hand-point-down text-xl text-black ml-2"></i>
             </a>

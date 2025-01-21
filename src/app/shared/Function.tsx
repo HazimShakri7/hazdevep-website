@@ -1,12 +1,14 @@
 "use client";
-import { Card, CardBody } from "@nextui-org/react";
+import { Button, Card, CardBody } from "@nextui-org/react";
 import Image from "next/image";
+import Link from "next/link";
+
 export default function Function() {
   const functionList = [
-    { title: "Portfolio", image: "/whywehave/PortfolioExample.png" },
-    { title: "Branding", image: "/whywehave/BrandingExample.jpg" },
-    { title: "Blogging", image: "/whywehave/BlogExample.jpg" },
-    { title: "E-Commerce", image: "/whywehave/ECommerceExample.jpg" },
+    { title: "Portfolio", image: "/whywehave/PortfolioExample.jpg", link: "https://www.behance.net/search/projects/portfolio%20website?tracking_source=typeahead_search_direct" },
+    { title: "Branding", image: "/whywehave/BrandingExample.jpg", link: "https://www.behance.net/search/projects/portfolio%20website?tracking_source=typeahead_search_direct" },
+    { title: "Blogging", image: "/whywehave/BlogExample.jpg", link: "https://www.behance.net/search/projects/portfolio%20website?tracking_source=typeahead_search_direct" },
+    { title: "E-Commerce", image: "/whywehave/ECommerceExample.jpg", link: "https://www.behance.net/search/projects/portfolio%20website?tracking_source=typeahead_search_direct" },
   ];
 
   return (
@@ -33,9 +35,18 @@ export default function Function() {
               <Image
                 src={box.image}
                 alt={box.title}
-                layout="fill"
+                sizes="(max-width: 768px) 50vw, (max-width: 1200px) 80vw, 100vw"
                 className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 group:hover:scale-110 transition-all duration-300"
+                fill
               />
+              {/* Find Similar Button */}
+              <Link href={box.link} passHref>
+                <Button
+                  className="absolute bottom-4 left-4 bg-transparent text-white py-2 px-6 border-2 rounded-full hover:bg-green-900 transition duration-300"
+                >
+                  Find Similar
+                </Button>
+              </Link>
             </CardBody>
           ))}
         </Card>

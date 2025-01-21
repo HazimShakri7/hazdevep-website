@@ -18,9 +18,9 @@ export default function Skills() {
       className="relative bg-gradient-to-r from-black to-green-900 text-white min-h-screen flex items-center justify-center"
     >
       <div className="container mx-auto text-center px-4">
-        <h1 className="text-4xl sm:text-5xl font-bold text-white mb-8">
+        <p className="text-4xl sm:text-5xl font-bold text-white mb-8">
           My Skills
-        </h1>
+        </p>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8 max-w-5xl mx-auto">
           {/* Skill Cards */}
@@ -32,7 +32,7 @@ export default function Skills() {
               <div className="relative w-full h-full [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] transition-transform duration-700">
                 {/* Front Side */}
                 <div className="absolute w-full h-full bg-white border-4 border-yellow-500 p-6 rounded-lg shadow-md [backface-visibility:hidden]">
-                  <h2 className="text-xl sm:text-2xl font-semibold text-black mb-4">{skill.name}</h2>
+                  <p className="text-xl sm:text-2xl font-semibold text-black mb-4">{skill.name}</p>
                   <Image
                     src={skill.image}
                     alt={skill.name}
@@ -44,7 +44,7 @@ export default function Skills() {
 
                 {/* Back Side */}
                 <div className="absolute w-full h-full bg-yellow-500 border-4 border-white p-6 rounded-lg shadow-md flex flex-col justify-center [transform:rotateY(180deg)] [backface-visibility:hidden]">
-                  <h3 className="text-black font-bold text-center txt-lg sm:text-xl">{skill.description}</h3>
+                  <p className="text-black font-bold text-center txt-lg sm:text-xl">{skill.description}</p>
                 </div>
               </div>
             </div>
