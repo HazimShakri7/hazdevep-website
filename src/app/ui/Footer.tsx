@@ -47,7 +47,7 @@ export default function Footer() {
         <div className="mt-16 text-center relative">
           <div className="absolute inset-0 bg-white h-8 -top-2"></div>
           <p className="text-sm text-black relative z-10">
-            © 2025 Hazim Shakri's Website. Created with passion and powered by Next.js for a seamless experience.
+            © 2025 Hazim Shakri&apos;s Website. Created with passion and powered by Next.js for a seamless experience.
           </p>
         </div>
       </div>
