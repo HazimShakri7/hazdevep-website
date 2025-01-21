@@ -1,17 +1,9 @@
-import React from "react";
-
-const PrivacyPolicyLayout = ({ children }: { children: React.ReactNode }) => {
+export default function PrivacyPolicyLayout({ children }: { children: React.ReactNode }) {
   return (
     <div>
-      <header>
-        <h1>Privacy Policy</h1>
-      </header>
+      <header>Privacy Policy Header</header>
       <main>{children}</main>
-      <footer>
-        <p>&copy; 2025 My Application</p>
-      </footer>
+      <footer>Privacy Policy Footer</footer>
     </div>
   );
-};
-
-export default PrivacyPolicyLayout;
+}
