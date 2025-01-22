@@ -1,11 +1,11 @@
-import Header from "../ui/Header";
-import Hero from "../shared/Hero";
-import Skills from "../shared/Skills";
-import Project from "../shared/Project";
-import Testimonial from "../shared/Testimonial";
-import Function from "../shared/Function";
-import Contact from "../shared/Contact";
-import Footer from "../ui/Footer";
+import Header from "./ui/Header";
+import Hero from "./shared/Hero";
+import Skills from "./shared/Skills";
+import Project from "./shared/Project";
+import Testimonial from "./shared/Testimonial";
+import Function from "./shared/Function";
+import Contact from "./shared/Contact";
+import Footer from "./ui/Footer";
 
 export default function Home() {
   return (

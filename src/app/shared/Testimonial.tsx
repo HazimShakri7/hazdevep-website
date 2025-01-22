@@ -1,58 +1,34 @@
-"use client";
+"use client"; 
 
-import Image from "next/image";
+import Image from "next/image"; 
 import { useState } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
-export default function Testimonial() {
-  const [currentIndex, setCurrentIndex] = useState(0);
+export default function Testimonial() { 
 
-  const testimonials = [
-    {
-      name: "Ali bin Abu",
-      image: "/customer/Haz.jpg",
-      feedback: "Saya suka dengan website yang hazim buat. Sangat colourful dan menarik. Sangat recommended untuk personal branding atau portfolio.",
-      rating: 4,
-    },
-    {
-      name: "Siti Kasminah Lumen",
-      image: "/customer/Haz.jpg",
-      feedback: "Saya suka dengan website yang hazim buat. Sangat colourful dan menarik. Sangat recommended untuk personal branding atau portfolio.",
-      rating: 4,
-    },
-    {
-      name: "Zam Alakazam",
-      image: "/customer/Haz.jpg",
-      feedback: "Saya suka dengan website yang hazim buat. Sangat colourful dan menarik. Sangat recommended untuk personal branding atau portfolio.",
-      rating: 4,
-    },
-    {
-      name: "John Doe",
-      image: "/customer/Haz.jpg",
-      feedback: "Saya suka dengan website yang hazim buat. Sangat colourful dan menarik. Sangat recommended untuk personal branding atau portfolio.",
-      rating: 5,
-    },
-    {
-      name: "Jane Smith",
-      image: "/customer/Haz.jpg",
-      feedback: "Saya suka dengan website yang hazim buat. Sangat colourful dan menarik. Sangat recommended untuk personal branding atau portfolio.",
-      rating: 5,
-    },
-    {
-      name: "Ahmad Zaki",
-      image: "/customer/Haz.jpg",
-      feedback: "Saya suka dengan website yang hazim buat. Sangat colourful dan menarik. Sangat recommended untuk personal branding atau portfolio.",
-      rating: 5,
-    },
+  const [currentIndex, setCurrentIndex] = useState(0); 
+
+  const testimonials = [ 
+    { name: "Ali bin Abu", image: "/customer/Haz.jpg", feedback: "Saya suka website ni.", rating: 4 },
+    { name: "Siti Kasminah Lumen", image: "/customer/Haz.jpg", feedback: "Nice job.", rating: 4 },
+    { name: "Zam Alakazam", image: "/customer/Haz.jpg", feedback: "Good job bro.", rating: 4 },
+    { name: "John Doe", image: "/customer/Haz.jpg", feedback: "Terima kasih.", rating: 5 },
+    { name: "Jane Smith", image: "/customer/Haz.jpg", feedback: "Lawa lah website.", rating: 5 },
+    { name: "Ahmad Zaki", image: "/customer/Haz.jpg", feedback: "Terbaik.", rating: 5 },
+    { name: "Ahmad Meor", image: "/customer/Haz.jpg", feedback: "Nicer.", rating: 5 },
+    { name: "Ahmad Ramli", image: "/customer/Haz.jpg", feedback: "Tak pernah tak smart.", rating: 5 },
   ];
 
-  const totalSlides = Math.ceil(testimonials.length / 3);
+  const totalSlides = Math.ceil(testimonials.length / 3); 
+  // Calculate the total number of slides (3 testimonials per slide).
 
   const goToPrev = () => {
+    // Function to go to the previous slide.
     setCurrentIndex((prevIndex) => (prevIndex - 1 + totalSlides) % totalSlides);
   };
 
   const goToNext = () => {
+    // Function to go to the next slide.
     setCurrentIndex((prevIndex) => (prevIndex + 1) % totalSlides);
   };
 
@@ -66,7 +42,6 @@ export default function Testimonial() {
           Customer Feedback
         </h2>
 
-        {/* Testimonials Container */}
         <div className="overflow-hidden">
           <div
             className="flex transition-transform duration-700 ease-in-out"
@@ -81,15 +56,16 @@ export default function Testimonial() {
                   <Image
                     src={testimonial.image}
                     alt="Customer"
-                    width={10}
-                    height={10}
-                    className="w-14 h-14 object-cover rounded-full border-2 shadow-lg mx-auto"
+                    width={5}
+                    height={5}
+                    className="border-2 shadow-lg mx-auto"
                   />
                   <h3 className="text-xl font-semibold text-yellow-400 mb-4 mt-2">
                     {testimonial.name}
                   </h3>
                   <p className="text-start text-white-600">{testimonial.feedback}</p>
                   <div className="mt-3 flex justify-center">
+                    {/* Star rating */}
                     {Array.from({ length: 5 }, (_, index) => (
                       <i
                         key={index}
@@ -106,7 +82,6 @@ export default function Testimonial() {
           </div>
         </div>
 
-        {/* Arrow Navigation */}
         <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex justify-between w-full max-w-xs">
           <button
             onClick={goToPrev}
