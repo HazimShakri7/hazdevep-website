@@ -1,34 +1,49 @@
-"use client"; 
+"use client";
 
-import Image from "next/image"; 
-import { useState } from "react";
+import Image from "next/image";
+import { useState, useEffect } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
-export default function Testimonial() { 
+export default function Testimonial() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [cardsPerSlide, setCardsPerSlide] = useState(3);
 
-  const [currentIndex, setCurrentIndex] = useState(0); 
-
-  const testimonials = [ 
-    { name: "Ali bin Abu", image: "/customer/Haz.jpg", feedback: "Saya suka website ni.", rating: 4 },
-    { name: "Siti Kasminah Lumen", image: "/customer/Haz.jpg", feedback: "Nice job.", rating: 4 },
-    { name: "Zam Alakazam", image: "/customer/Haz.jpg", feedback: "Good job bro.", rating: 4 },
-    { name: "John Doe", image: "/customer/Haz.jpg", feedback: "Terima kasih.", rating: 5 },
-    { name: "Jane Smith", image: "/customer/Haz.jpg", feedback: "Lawa lah website.", rating: 5 },
-    { name: "Ahmad Zaki", image: "/customer/Haz.jpg", feedback: "Terbaik.", rating: 5 },
-    { name: "Ahmad Meor", image: "/customer/Haz.jpg", feedback: "Nicer.", rating: 5 },
-    { name: "Ahmad Ramli", image: "/customer/Haz.jpg", feedback: "Tak pernah tak smart.", rating: 5 },
+  const testimonials = [
+    { name: "Stephen Curry", image: "/customer/Cust1.jpg", feedback: "Saya suka portfolio yang hazim dah buat. Very creative.", rating: 4 },
+    { name: "Jack Kie", image: "/customer/Cust2.jpg", feedback: "Thanks for created me an e-commerce. Very user-friendly.", rating: 5 },
+    { name: "Sam Collay", image: "/customer/Cust3.jpg", feedback: "Good job bro for creating my personal branding website.", rating: 4 },
+    { name: "John Doe", image: "/customer/Cust4.jpg", feedback: "Terima kasih.", rating: 5 },
+    { name: "Jane Smith", image: "/customer/Cust5.jpg", feedback: "Lawa lah website.", rating: 5 },
+    { name: "Ray Jackson", image: "/customer/Cust4.jpg", feedback: "Terbaik.", rating: 5 },
+    { name: "IShow Speed", image: "/customer/Cust3.jpg", feedback: "Nicer.", rating: 5 },
+    { name: "King Butcher", image: "/customer/Cust2.jpg", feedback: "Tak pernah tak smart.", rating: 5 },
   ];
 
-  const totalSlides = Math.ceil(testimonials.length / 3); 
-  // Calculate the total number of slides (3 testimonials per slide).
+  // Calculate the total number of slides
+  const totalSlides = Math.ceil(testimonials.length / cardsPerSlide);
+
+  // Adjust cards per slide based on screen size
+  useEffect(() => {
+    const updateCardsPerSlide = () => {
+      if (window.innerWidth < 640) {
+        setCardsPerSlide(1); // Small screens
+      } else if (window.innerWidth < 1024) {
+        setCardsPerSlide(2); // Medium screens
+      } else {
+        setCardsPerSlide(3); // Large screens
+      }
+    };
+
+    updateCardsPerSlide(); // Run on mount
+    window.addEventListener("resize", updateCardsPerSlide); // Adjust on resize
+    return () => window.removeEventListener("resize", updateCardsPerSlide);
+  }, []);
 
   const goToPrev = () => {
-    // Function to go to the previous slide.
     setCurrentIndex((prevIndex) => (prevIndex - 1 + totalSlides) % totalSlides);
   };
 
   const goToNext = () => {
-    // Function to go to the next slide.
     setCurrentIndex((prevIndex) => (prevIndex + 1) % totalSlides);
   };
 
@@ -50,22 +65,29 @@ export default function Testimonial() {
             {testimonials.map((testimonial, index) => (
               <div
                 key={index}
-                className="flex-shrink-0 w-full sm:w-1/2 lg:w-1/3 px-4"
+                className={`flex-shrink-0 w-full ${
+                  cardsPerSlide === 1
+                    ? "sm:w-full"
+                    : cardsPerSlide === 2
+                    ? "sm:w-1/2"
+                    : "lg:w-1/3"
+                } px-4`}
               >
-                <div className="bg-transparent border-2 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                <div className="bg-transparent border-2 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 relative">
+                  {/* Number label */}
+                  <span className="absolute top-4 left-4 text-xl font-bold text-yellow-400 rounded-full border-2 w-8 h-8">{index + 1}</span>
                   <Image
                     src={testimonial.image}
                     alt="Customer"
-                    width={5}
-                    height={5}
-                    className="border-2 shadow-lg mx-auto"
+                    width={150}
+                    height={150}
+                    className="h-16 w-16 rounded-full border-2 shadow-lg mx-auto object-cover"
                   />
-                  <h3 className="text-xl font-semibold text-yellow-400 mb-4 mt-2">
+                  <h3 className="text-xl font-semibold text-white mb-4 mt-2">
                     {testimonial.name}
                   </h3>
                   <p className="text-start text-white-600">{testimonial.feedback}</p>
                   <div className="mt-3 flex justify-center">
-                    {/* Star rating */}
                     {Array.from({ length: 5 }, (_, index) => (
                       <i
                         key={index}
@@ -75,7 +97,7 @@ export default function Testimonial() {
                       />
                     ))}
                   </div>
-                  <h3 className="text-xl text-white mt-2">{testimonial.rating}.0</h3>
+                  <h3 className="text-xl text-white mt-2">{testimonial.rating}.0 </h3>
                 </div>
               </div>
             ))}

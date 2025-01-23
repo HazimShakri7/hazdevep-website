@@ -1,6 +1,8 @@
 "use client";
 import React from "react";
-import { Form, Button, Input, Checkbox } from "@nextui-org/react";
+import { Form, Button, Checkbox } from "@nextui-org/react";
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
 import Link from "next/link";
 
 export default function Personal() {
@@ -14,9 +16,21 @@ export default function Personal() {
       </p>
       </div>
       
-    <Form
+    <Box
+      component="form"
+      sx={{ '& > :not(style)': { m: 1, width: '25ch' },
+      '& .MuiInputBase-input': {color: 'white'},
+      '& .MuiInputLabel-root': {color: 'white'},
+      '& .MuiInputLabel-shrink': {color: 'white'}, 
+      '& .MuiFormLabel-root': {color: 'white'},
+      '& .MuiInput-underline:before': {borderBottomColor: 'white'},
+      '& .MuiInput-underline:hover:before': {borderBottomColor: '#f59e0b'},
+      '& .MuiInput-underline:after': {borderBottomColor: '#f59e0b'},
+     }}
+      noValidate
+      autoComplete="off"
+      
       className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 text-left mt-4"
-      validationBehavior="native"
       onReset={() => setAction("")}
       onSubmit={(e) => {
         e.preventDefault();
@@ -25,37 +39,36 @@ export default function Personal() {
 
       }}
     >
-      <Input
-        isRequired
-        errorMessage="Please enter a valid first name"
-        // label="First Name" labelPlacement="outside"
-        name="firstname" placeholder="First Name" type="text"
+      <TextField
+        id="firstName"
+        label="First Name"
+        variant="standard"
         className="mt-1 py-1 border-b-2 outline-none bg-transparent text-white text-left w-full"
       />
-      <Input
-        isRequired
-        errorMessage="Please enter a valid last name"
-        name="lastname" placeholder="Last Name" type="text"
+      <TextField
+        id="lastName"
+        label="Last Name"
+        variant="standard"
         className="mt-1 py-1 border-b-2 outline-none bg-transparent text-white text-left w-full"
       />
-      <Input
-        isRequired
-        errorMessage="Please enter a valid phone number"
-        name="phonenumber" placeholder="Phone Number" type="tel"
+      <TextField
+        id="email"
+        label="Email"
+        variant="standard"
         className="mt-1 py-1 border-b-2 outline-none bg-transparent text-white text-left w-full"
       />
-      <Input
-        isRequired
-        errorMessage="Please enter a valid email"
-        name="email" placeholder="Email" type="email"
+      <TextField
+        id="phoneNumber"
+        label="Phone Number"
+        variant="standard"
         className="mt-1 py-1 border-b-2 outline-none bg-transparent text-white text-left w-full"
       />
 
       <div className="col-span-1 sm:col-span-2 md:col-span-4 mt-2">
-      <Input
-        isRequired
-        errorMessage="Please enter your project Name and detail description"
-        name="projectname" placeholder="Project Name and (Detail Description)" type="text"
+      <TextField
+        id="projectName"
+        label="Project Name & (Detail Description)"
+        variant="standard"
         className="mt-1 py-1 border-b-2 outline-none bg-transparent text-white w-full max-w-full"
       />
       </div>
@@ -78,7 +91,7 @@ export default function Personal() {
           Action: <code>{action}</code>
         </div>
       )}
-    </Form>
+    </Box>
   </div>
   );
 }
