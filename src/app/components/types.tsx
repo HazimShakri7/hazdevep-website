@@ -1,33 +1,80 @@
 "use client";
+import React from "react";
+import { RadioGroup, useRadio, VisuallyHidden, RadioProps, cn } from "@heroui/react";
 
-import { useState } from "react";
+export const CustomRadio = (props: RadioProps) => {
+  const {
+    Component,
+    children,
+    description,
+    getBaseProps,
+    getWrapperProps,
+    getInputProps,
+    getLabelProps,
+    getControlProps,
+    isSelected, // Added to check if the radio is selected
+  } = useRadio(props);
+
+  return (
+    <Component
+      {...getBaseProps()}
+      className={cn(
+        "group inline-flex items-center justify-between", // Changed to justify-between for better spacing
+        "cursor-pointer border-2 rounded-lg p-4 w-[170px]",
+        "data-[selected=true]:border-primary",
+        isSelected && "border-2 border-yellow-400" // Added background for selected state
+      )}
+      aria-labelledby={children ? children.toString() : undefined} // Accessibility: Ensure label is associated with input
+    >
+      <VisuallyHidden>
+        <input {...getInputProps()} />
+      </VisuallyHidden>
+      <span {...getWrapperProps()} className="flex-1">
+        {children && <span {...getLabelProps()}>{children}</span>}
+        {description && (
+          <span className="text-small text-foreground opacity-70">{description}</span>
+        )}
+      </span>
+      <span
+        {...getControlProps()}
+        className={cn(
+          "w-4 h-4 border-2 rounded-full transition-all duration-200", // Small circle
+          isSelected
+            ? "bg-yellow-400" // When selected, show filled circle
+            : "border-gray-300" // When not selected, show empty circle
+        )}
+      />
+    </Component>
+  );
+};
 
 export default function Types() {
-  const [tickedBox, setTickedBox] = useState<number | null>(null);
-  const boxTypes = [
-    { title: "Portfolio" }, { title: "Branding" }, { title: "Blogging" }, { title: "E-Commerce" }, { title: "Others" },
-  ];
-
-  const handleBoxClick = (box: number) => {
-    setTickedBox(box);
-  };
   return (
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="col-span-5 text-left mb-4">
-            <h3 className="text-2xl sm:text-3xl font-bold text-white">
-              Types
-            </h3>
+    <h1 className="max-w-6xl mx-auto">
+      <div className="text-left ml-4 sm:ml-6 lg:ml-4">
+        <span className="text-xl sm:text-2xl font-bold text-white">
+          Types
+        </span>
+        <RadioGroup label="" name="type-group"> {/* Added name for radio group accessibility */}
+          <div className="flex flex-wrap justify-start space-x-4 sm:space-x-6 lg:space-x-4 gap-y-4 mt-2">
+            <CustomRadio description="" value="portfolio">
+              Portfolio
+            </CustomRadio>
+            <CustomRadio description="" value="branding">
+              Branding
+            </CustomRadio>
+            <CustomRadio description="" value="blogging">
+              Blogging
+            </CustomRadio>
+            <CustomRadio description="" value="ecommerce">
+              E-Commerce
+            </CustomRadio>
+            <CustomRadio description="" value="others">
+              Others
+            </CustomRadio>
           </div>
-
-          {/*Mapping Method to Avoid Duplication Code*/}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
-          {boxTypes.map((box, index) => (
-            <div key={index} onClick={() => handleBoxClick(index)}
-              className={`p-6 rounded-lg border-2 cursor-pointer transition-all duration-300 ${tickedBox === index ? 'bg-yellow-500 shadow-lg' : 'hover:bg-yellow-500'}`}>
-              <h3 className="text-lg sm:text-xl font-semibold text-white text-center">{box.title}</h3>
-            </div>
-          ))}
-        </div>
-    </div>
+        </RadioGroup>
+      </div>
+    </h1>
   );
 }
