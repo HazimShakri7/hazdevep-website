@@ -10,8 +10,8 @@ export default function Personal() {
 
   return (
     <div className="max-w-6xl mx-auto mt-8 px-4">
-      <div className="col-span-5 text-left mb-2 mt-3">
-      <p className="text-2xl sm:text-3xl font-bold text-white">
+      <div className="col-span-5 text-left">
+      <p className="text-xl sm:text-2xl font-bold text-white">
         Customer Form
       </p>
       </div>
@@ -30,7 +30,7 @@ export default function Personal() {
       noValidate
       autoComplete="off"
       
-      className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 text-left mt-4"
+      className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 text-left"
       onReset={() => setAction("")}
       onSubmit={(e) => {
         e.preventDefault();
@@ -69,7 +69,7 @@ export default function Personal() {
         id="projectName"
         label="Project Name & (Detail Description)"
         variant="standard"
-        className="mt-1 py-1 border-b-2 outline-none bg-transparent text-white w-full max-w-full"
+        className="mt-1 border-b-2 outline-none bg-transparent text-white w-full max-w-full"
       />
       </div>
       <div className="col-span-1 sm:col-span-2 md:col-span-4 mt-2 flex items-center space-x-2">
