@@ -14,12 +14,14 @@ export default function Contact() {
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-white mb-6">
           Want a Website?
         </h2>
+        <div className="border-2 border-white p-4 sm:p-6 md:p-8 m-4 sm:m-6 md:m-10 rounded-md">
 
         {/*Components*/}
         <div className="space-y-8">
         <Types />
         <Budget />
         <Personal />
+      </div>
       </div>
       </div>
     </section>
